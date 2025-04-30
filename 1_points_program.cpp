@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);  // Set the display mode to single buffer, RGB
     glutInitWindowSize(500, 500);  // Set the window size to 500x500
     glutInitWindowPosition(100, 100);  // Set the window position on screen
-    glutCreateWindow("Points");  // Create the window with title "Points"
+    glutCreateWindow("first program");  // Create the window with title "Points"
     
     init(); // Initialize OpenGL settings
 
