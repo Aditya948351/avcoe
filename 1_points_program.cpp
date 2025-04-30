@@ -10,6 +10,13 @@ void display() {
     glFlush();
 }
 
+void myinit() {
+    glClearColor(0.0,0.0,0.0,0.0);
+    glColor3f(1.0,0.0,1.0);
+    glPointSize(20.0);
+    gluOrtho2D();
+}
+
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
