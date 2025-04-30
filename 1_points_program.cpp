@@ -5,7 +5,7 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1.0,0.0,0.0);
     glBegin(GL_POINTS);
-        glVertex2f(10.0,10.0);
+        glVertex2f(250.0,250.0);
     glEnd();
     glFlush();
 }
@@ -20,7 +20,7 @@ void myinit() {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(700,700);
+    glutInitWindowSize(500,500);
     glutInitWindowPosition(0,0);
     glutCreateWindow("Points");
     
