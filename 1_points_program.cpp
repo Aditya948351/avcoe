@@ -1,31 +1,30 @@
 #include<GL/glut.h>
 
-
 void display() {
-    glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1.0,0.0,0.0);
-    glBegin(GL_POINTS);
-        glVertex2f(250.0,250.0);
-    glEnd();
-    glFlush();
+    glClear(GL_COLOR_BUFFER_BIT);          // Clear the screen
+    glColor3f(1.0, 0.0, 0.0);             // Set the color to red
+    glBegin(GL_POINTS);                    // Start drawing points
+        glVertex2f(250.0, 250.0);           // Draw a point at (250, 250), centered
+    glEnd();                              // End drawing points
+    glFlush();                            // Force execution of all OpenGL commands
 }
 
 void myinit() {
-    glClearColor(0.0,0.0,0.0,0.0);
-    glColor3f(1.0,0.0,0.0);
-    glPointSize(20.0);
-    gluOrtho2D(0.0,499.0,0.0,0.499);
+    glClearColor(0.0, 0.0, 0.0, 0.0);     // Set the background color to black
+    glColor3f(1.0, 0.0, 0.0);             // Set the point color to red
+    glPointSize(20.0);                    // Set the point size to 20 for better visibility
+    gluOrtho2D(0.0, 499.0, 0.0, 499.0);   // Set the 2D orthogonal view (viewport)
 }
 
 int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(500,500);
-    glutInitWindowPosition(0,0);
-    glutCreateWindow("Points");
-    
-    myinit();
-    glutDisplayFunc(display);
-    
-    glutMainLoop();
+    glutInit(&argc, argv);                  // Initialize GLUT
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);  // Set display mode
+    glutInitWindowSize(500, 500);           // Set the window size
+    glutInitWindowPosition(0, 0);           // Set the window position on screen
+    glutCreateWindow("Points");             // Create the window with the title "Points"
+
+    myinit();                               // Call initialization function to set up OpenGL settings
+    glutDisplayFunc(display);               // Register the display function
+
+    glutMainLoop();                         // Start the GLUT main loop, and keep the window open
 }
