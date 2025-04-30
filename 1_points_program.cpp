@@ -19,7 +19,7 @@ void myinit() {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);                  // Initialize GLUT
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);  // Set display mode
-    glutInitWindowSize(500, 500);           // Set the window size
+    glutInitWindowSize(700, 800);           // Set the window size
     glutInitWindowPosition(0, 0);           // Set the window position on screen
     glutCreateWindow("Points");             // Create the window with the title "Points"
 
