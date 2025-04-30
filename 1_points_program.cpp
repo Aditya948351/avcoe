@@ -14,7 +14,7 @@ void myinit() {
     glClearColor(0.0,0.0,0.0,0.0);
     glColor3f(1.0,0.0,1.0);
     glPointSize(20.0);
-    gluOrtho2D();
+    gluOrtho2D(0.0,0.0,0.0,0.0);
 }
 
 int main(int argc, char** argv) {
