@@ -13,7 +13,10 @@ void display() {
 
 void myinit() {
   glClearColor(1.0,1.0,1.0,1.0);
+  glColor3f(1.0,1.0,1.0);
+  gluOrtho2D(0.0,499.0,0.0,499.0);
   glPointSize(20.0);
+  
 }
 
 int main(int argc, char** argv) {
