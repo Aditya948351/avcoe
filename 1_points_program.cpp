@@ -18,4 +18,6 @@ int main(int argc, char** argv) {
     glutCreateWindow("Points");
     glutDisplayFunc(display);
     glutMainLoop();
+    myinit();
+    glutMainLoop();
 }
