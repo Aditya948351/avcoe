@@ -4,7 +4,8 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT);          // Clear the screen
     glColor3f(1.0, 0.0, 0.0);             // Set the color to red
     glBegin(GL_POINTS);                    // Start drawing points
-        glVertex2f(10.0, 10.0);           // Draw a point at (10, 10)
+        glVertex2f(10.0, 10.0);
+        glVertex2f(20.0,30.0);
     glEnd();                              // End drawing points
     glFlush();                            // Force execution of all OpenGL commands
 }
@@ -19,7 +20,7 @@ void myinit() {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);                  // Initialize GLUT
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);  // Set display mode
-    glutInitWindowSize(700, 800);           // Set the window size
+    glutInitWindowSize(1080, 850);           // Set the window size
     glutInitWindowPosition(0, 0);           // Set the window position on screen
     glutCreateWindow("Points");             // Create the window with the title "Points"
 
