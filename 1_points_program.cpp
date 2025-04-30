@@ -4,7 +4,7 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT);          // Clear the screen
     glColor3f(1.0, 0.0, 0.0);             // Set the color to red
     glBegin(GL_POINTS);                    // Start drawing points
-        glVertex2f(250.0, 250.0);           // Draw a point at (250, 250), centered
+        glVertex2f(10.0, 10.0);           // Draw a point at (10, 10)
     glEnd();                              // End drawing points
     glFlush();                            // Force execution of all OpenGL commands
 }
@@ -12,7 +12,7 @@ void display() {
 void myinit() {
     glClearColor(0.0, 0.0, 0.0, 0.0);     // Set the background color to black
     glColor3f(1.0, 0.0, 0.0);             // Set the point color to red
-    glPointSize(20.0);                    // Set the point size to 20 for better visibility
+    glPointSize(10.0);                    // Set the point size to 10
     gluOrtho2D(0.0, 499.0, 0.0, 499.0);   // Set the 2D orthogonal view (viewport)
 }
 
