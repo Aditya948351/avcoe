@@ -10,6 +10,10 @@ void display() {
   glFlush();
 }
 
+void myinit() {
+  glClearColor(1.0,1.0,1.0,1.0);
+}
+
 int main(int argc, char** argv) {
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
@@ -18,6 +22,7 @@ int main(int argc, char** argv) {
   glutCreateWindow("1. Points");
 
   glutDisplayFunc(display);  
+  myinit();
   
   glutMainLoop();
 }
