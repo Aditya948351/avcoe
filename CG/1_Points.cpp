@@ -5,13 +5,15 @@ void display() {
   glClear(GL_COLOR_BUFFER_BIT); //Clears the buffer
   glColor3f(1.0,1.0,1.0); //every vertex has its own color
   glBegin(GL_POINTS);
-  glVertex2f(10.0,10.0);
+    glVertex2f(10.0,10.0);
+    glVertex2f(150,180);
   glEnd();
   glFlush();
 }
 
 void myinit() {
   glClearColor(1.0,1.0,1.0,1.0);
+  glPointSize(20.0);
 }
 
 int main(int argc, char** argv) {
