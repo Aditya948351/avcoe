@@ -47,7 +47,7 @@ void drawLine(int style) {
   y = y1;
 
   glBegin(GL_POINTS);
-  for(int i=0;i <= length i++) {
+  for(int i=0 ; i <= length ; i++) {
     if(style == 0 || style == 1 && i%5 == 0 || style ==2 && i%2 == 0 ) {
       glVertex2i(x, y);      
     }
