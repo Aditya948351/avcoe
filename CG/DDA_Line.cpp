@@ -31,11 +31,11 @@ void drawLine(int style) {
   cout << "Enter the value of x1: ";
   cin >> x1;
   cout << "Enter the value of y1: ";
-  cin >> y1;
+  cin >> y_1;
   cout << "Enter the value of x2: ";
   cin >> x2;
   cout << "Enter the value of y2: ";
-  cin >> y2;
+  cin >> y_2;
 
   dx = x2-x1;
   dy = y_2-y_1;
