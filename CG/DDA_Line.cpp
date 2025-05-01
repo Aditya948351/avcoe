@@ -4,7 +4,7 @@
 #include<cmath>
 using namespace std;
 
-float x1,y_1,x2,y2;
+float x1,y_1,x2,y_2;
 float dx,dy,x,y,Xin,Yin,length;
 
 
@@ -38,14 +38,14 @@ void drawLine(int style) {
   cin >> y2;
 
   dx = x2-x1;
-  dy = y2-y_1;
+  dy = y_2-y_1;
 
   length = (abs(dx) > abs(dy)) ? abs(dx) : abs(dy);
 
   Xin = dx/length;
   Yin = dy/length;
   x = x1;
-  y = y1;
+  y = y_1;
 
   glBegin(GL_POINTS);
   for(int i=0 ; i <= length ; i++) {
