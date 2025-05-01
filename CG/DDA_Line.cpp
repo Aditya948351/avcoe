@@ -67,9 +67,9 @@ void init(void) {
 
 int main(int argc, char** argv) {
   glutInit(&argc, argv);
-  glutWindowDisplayMode(GLUT_SINGLE | GLUT_RGB);
-  glutWindowSize(800,800);
-  glutWindowPosition(0.0,0.0);
+  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+  glutInitWindowSize(800,800);
+  glutInitWindowPosition(0.0,0.0);
   glutCreateWindow("DDA Line Drawing Algorithm");
   glutDisplayFunc(display);
   init();
