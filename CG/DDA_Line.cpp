@@ -6,20 +6,6 @@ using namespace std;
 float x1,y_1,x2,y_2;
 float dx,dy,x,y,Xin,Yin,length;
 
-
-void simpleLine() {
-  cout<< "\nSimple Line\n" ;
-  drawLine(0);
-}
-void dashedLine() {
-  cout<< "\nDashed Line\n";
-  drawLine(1);
-}
-void dottedLine() {
-  cout<< "\nDotted Line\n";
-  drawLine(2);
-}
-
 void display() {
   simpleLine();
   dashedLine();
@@ -56,6 +42,19 @@ void drawLine(int style) {
   }
   glEnd();
   glFlush();
+}
+
+void simpleLine() {
+  cout<< "\nSimple Line\n" ;
+  drawLine(0);
+}
+void dashedLine() {
+  cout<< "\nDashed Line\n";
+  drawLine(1);
+}
+void dottedLine() {
+  cout<< "\nDotted Line\n";
+  drawLine(2);
 }
 
 void init(void) {
