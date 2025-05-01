@@ -41,7 +41,7 @@ void drawLine(int style) {
 
   length = (abs(dx) > abs(dy)) ? abs(dx) : abs(dy);
 
-  Xin = dx?length;
+  Xin = dx/length;
   Yin = dy/length;
   x = x1;
   y = y1;
