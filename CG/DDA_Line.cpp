@@ -6,12 +6,6 @@ using namespace std;
 float x1,y_1,x2,y_2;
 float dx,dy,x,y,Xin,Yin,length;
 
-void display() {
-  simpleLine();
-  dashedLine();
-  dottedLine();
-}
-
 void drawLine(int style) {
   cout << "Enter the value of x1: ";
   cin >> x1;
@@ -55,6 +49,12 @@ void dashedLine() {
 void dottedLine() {
   cout<< "\nDotted Line\n";
   drawLine(2);
+}
+
+void display() {
+  simpleLine();
+  dashedLine();
+  dottedLine();
 }
 
 void init(void) {
