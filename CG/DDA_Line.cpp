@@ -1,9 +1,10 @@
 #include<GL/glut.h>
 #include<iostream>
 #include<stdlib.h>
+#include<cmath>
 using namespace std;
 
-float x1,y1,x2,y2;
+float x1,y_1,x2,y2;
 float dx,dy,x,y,Xin,Yin,length;
 
 
@@ -37,7 +38,7 @@ void drawLine(int style) {
   cin >> y2;
 
   dx = x2-x1;
-  dy = y2-y1;
+  dy = y2-y_1;
 
   length = (abs(dx) > abs(dy)) ? abs(dx) : abs(dy);
 
