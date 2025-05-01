@@ -51,8 +51,8 @@ void drawLine(int style) {
     if(style == 0 || style == 1 && i%5 == 0 || style ==2 && i%2 == 0 ) {
       glVertex2i(x, y);      
     }
-    x += Xinc;
-    y += Yinc;
+    x += Xin;
+    y += Yin;
   }
   glEnd();
   glFlush();
