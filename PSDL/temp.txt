@@ -1,0 +1,142 @@
+
+#include <pic18f4450.h>
+
+#pragma config WDT = OFF 
+#pragma config LVP = OFF 
+#pragma config PBADEN = OFF 
+#define LCD_DATA    PORTD              
+#define en          PORTEbits.RE2      
+#define rw          PORTEbits.RE1      
+#define rs          PORTEbits.RE0     
+
+void ADC_Init(void);					
+unsigned int Get_ADC_Result(void);		
+void Start_Conversion(void);			
+void msdelay (unsigned int time);	
+void init_LCD(void);						
+void LCD_command(unsigned char cmd);	
+void LCD_data(unsigned char data);		
+void LCD_write_string( char *str);
+
+void main()
+{ 
+ char msg1[] = "LM35 Interface";
+ char msg2[] = "Temp.:";
+ char msg3[] = {0xDF, 0x43, 0x00};
+ unsigned char temp=0;
+ unsigned char i=0, Thousands,Hundreds,Tens,Ones;
+ unsigned int adc_val;
+ unsigned char val, pot0[6];
+ ADCON1 = 0x0F;        
+ TRISD = 0x00;         
+ TRISE = 0x00;         
+	
+ 
+	
+ ADC_Init();				
+ init_LCD();				
+ LCD_write_string(msg1);
+ LCD_command(0xC0);			
+ LCD_write_string(msg2);	
+ 
+ while(1)
+ {
+  Start_Conversion();		
+  adc_val= Get_ADC_Result();
+  adc_val = adc_val/2;		
+  LCD_command (0xC7);		
+  
+  val = (unsigned char) adc_val;
+  i = (val/100);	
+  Hundreds = i + 0x30;		
+  LCD_data (Hundreds);		
+  i = (val%100)/10; 
+  Tens = i + 0x30;			
+  LCD_data (Tens);			
+  	
+  i = adc_val%10 ;			
+  Ones = i + 30; 			
+  LCD_data (i + 0x30);		
+ 
+ 
+  LCD_write_string(msg3);
+ 
+  msdelay(300);		
+ }
+ 
+} 
+ 
+void ADC_Init()
+{
+ ADCON0=0b00000100;
+ ADCON1=0b00001110;
+ ADCON2=0b10001110;
+ ADCON0bits.ADON=1; 
+}
+
+void Start_Conversion()
+{
+ ADCON0bits.GO=1;
+}
+
+unsigned int Get_ADC_Result()
+{
+ unsigned int ADC_Result=0;
+ while(ADCON0bits.GO);
+ ADC_Result=ADRESL;
+ ADC_Result|=((unsigned int)ADRESH) << 8;
+ return ADC_Result;
+} 
+
+void msdelay (unsigned int time) 
+{
+unsigned int i, j;
+  for (i = 0; i < time; i++)
+	for (j = 0; j < 275; j++);
+}
+
+
+void init_LCD(void)		
+{
+    LCD_command(0x38);     
+    msdelay(15);
+    LCD_command(0x01);     
+    msdelay(15);
+    LCD_command(0x0C);     
+    msdelay(15);
+    LCD_command(0x80);    
+    msdelay(15);
+}
+
+void LCD_command(unsigned char cmd) 
+{
+    LCD_DATA = cmd;		
+    rs = 0;				
+    rw = 0;				
+    en = 1;				
+    msdelay(15);
+    en = 0;
+}
+
+void LCD_data(unsigned char data)
+{
+    LCD_DATA = data;	
+    rs = 1;				
+    rw = 0;				
+    en = 1;				
+  	msdelay(15);
+    en = 0;
+}
+
+void LCD_write_string(char *str)   
+{
+    int i = 0;
+    while (str[i] != 0)
+    {
+        LCD_data(str[i]);      
+        msdelay(15);
+        i++;
+    }
+}
+
+
